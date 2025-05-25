@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anagha Ankolekar | Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono&display=swap');
+
+        :root {
+            --lavender: #e6e6fa;
+            --purple: #9370db;
+            --deep-purple: #6a0dad;
+            --white: #fff;
+            --text-dark: #2c2c2c;
+            --text-light: #666;
+            --skills-bg: #d8b9f2;
+            /* added for skills background */
+            --footer-link: #fdd835;
+        }
+
+        :root {
+            --purple-dark: #4B0082;
+            --purple-light: #7D3C98;
+            --purple-accent: #9B59B6;
+            --text-light: #f5f5f5;
+            --shadow-dark: rgba(75, 0, 130, 0.3);
+            --border-radius: 12px;
+            --transition-speed: 0.3s;
+            --font-primary: 'Poppins', sans-serif;
+        }
+
+        #projects {
+            margin: 4rem auto;
+            max-width: 1200px;
+            padding: 0 1rem;
+            font-family: var(--font-primary);
+        }
+
+        #projects h2 {
+            text-align: center;
+            color: var(--purple-dark);
+            margin-bottom: 3rem;
+            font-weight: 800;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #projects .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #b795d1, #dbbaf2);
+            color: var(--text-light);
+            border-radius: var(--border-radius);
+            box-shadow: 0 8px 25px var(--shadow-dark);
+            display: flex;
+            flex-direction: column;
+            padding: 1.6rem 2rem;
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 12px 40px rgba(108, 35, 161, 0.6);
+        }
+
+        .project-card h5 {
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+            color: #130221;
+        }
+
+        .project-card p.description {
+            flex-grow: 1;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            opacity: 0.9;
+            color: #160225;
+        }
+
+        .tech {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 0.7rem;
+            align-items: center;
+            color: #ffffff;
+        }
+
+        .tech span {
+            background: #63308d;
+            padding: 0.3rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 6px rgba(42, 5, 57, 0.3);
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .project-card a {
+            align-self: flex-start;
+            padding: 0.5rem 1.2rem;
+            border: 2px solid var(--text-light);
+            border-radius: 30px;
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+        }
+
+        .project-card a:hover {
+            background-color: var(--text-light);
+            color: var(--purple-dark);
+            border-color: var(--text-light);
+        }
+
+        /* Emojis sizing for consistent look */
+        .tech span::before {
+            margin-right: 0.4rem;
+            font-size: 1.1rem;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 600px) {
+            #projects h2 {
+                font-size: 2.2rem;
+            }
+
+            .project-card {
+                padding: 1.3rem 1.5rem;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: var(--lavender);
+            color: var(--text-dark);
+        }
+
+        header {
+            background: var(--deep-purple);
+            color: var(--white);
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav h1 {
+            font-size: 26px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--lavender);
+        }
+
+        section {
+            max-width: 100%;
+            margin: 0;
+            padding: 0 10px;
+            /* Optional: small padding to prevent content sticking to edges */
+
+
+        }
+
+
+        /* Merged hero styles */
+        .hero {
+            padding: 0;
+            /* removes horizontal padding */
+            height: 100vh;
+            /* Full viewport height */
+            min-height: 600px;
+            /* Optional minimum height */
+            display: flex;
+            align-items: center;
+            /* Vertical center */
+            padding: 0 20px;
+            /* Horizontal padding */
+            text-align: left;
+            /* Align text left on larger screens */
+        }
+
+        .hero-content {
+            max-width: 100%;
+            margin: 0;
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+        }
+
+
+        .hero-text {
+            flex: 1 1 300px;
+            text-align: left;
+            padding-right: 20px;
+        }
+
+        .hero h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: var(--deep-purple);
+        }
+
+        .hero .highlight {
+            color: var(--dark-purple);
+        }
+
+        .hero .subtitle {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .hero .tags {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #5c5c5c;
+            font-style: italic;
+        }
+
+        .hero .cta {
+            background: var(--deep-purple);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        .hero .cta:hover {
+            background: var(--purple);
+        }
+
+        .hero-image img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+
+        @media (max-width: 768px) {
+            .hero {
+                height: auto;
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                gap: 40px;
+            }
+
+            .hero-text {
+                text-align: center;
+                padding-right: 0;
+            }
+
+            .hero-image img {
+                max-width: 80vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero .subtitle,
+            .hero .tags {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .hero h2 {
+                font-size: 30px;
+            }
+        }
+
+        h2 {
+            color: var(--deep-purple);
+            margin-bottom: 20px;
+        }
+
+        /* Container & section styling */
+        /* Section fills full width, no big horizontal margin or padding */
+        .skills-section {
+            padding: 20px;
+
+
+
+            background: #f9f9fb;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .skills-section h2 {
+            text-align: center;
+            color: #5a2a83;
+            margin-bottom: 40px;
+            font-size: 2.4rem;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .skills-column {
+            flex: 1;
+            background: #fff;
+            border-radius: 12px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skills-column h3 {
+            color: #3c1361;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            border-bottom: 3px solid #5a2a83;
+            padding-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .skills-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        .skills-column ul li {
+            background: #e8def8;
+            color: #3c1361;
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: default;
+            transition: background-color 0.3s ease;
+        }
+
+        .skills-column ul li:hover {
+            background-color: #d6c5f2;
+        }
+
+        /* Responsive: stack columns vertically on smaller screens */
+        @media (max-width: 900px) {
+            .skills-container {
+                flex-direction: column;
+                gap: 25px;
+            }
+        }
+
+
+
+        .resume {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .resume-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.6rem 1.2rem;
+            background-color: #532177;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .resume-btn:hover {
+            background-color: #6a2b9c;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .connect-details p {
+            margin: 0.6rem 0;
+            font-size: 1.1rem;
+        }
+
+        .connect-details a {
+            color: #532177;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .connect-details a:hover {
+            text-decoration: underline;
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: var(--deep-purple);
+            color: var(--white);
+            font-size: 15px;
+        }
+
+        footer a {
+            color: var(--footer-link);
+            text-decoration: none;
+        }
+
+        p.animated-role {
+            font-size: 38px !important;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 600;
+            color: var(--deep-purple);
+            margin-top: 12px;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background-color: var(--deep-purple);
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>Anagha Ankolekar</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>Hey there! I'm <span class="highlight">Anagha Ankolekar</span>, your next-gen Data Enthusiast 🚀
+                </h2>
+
+                <p class="subtitle" style="color: #130020;">I’m a curious soul turning
+                    ideas into intuitive designs and lines of code into impact.</p>
+                <p class="animated-role">
+                    <span class="typed-text"></span><span class="cursor"></span>
+                </p>
+                <br>
+                <a href="#projects" class="cta">View My Work</a>
+            </div>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Anagha Ankolekar">
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" style="background: #f9f9fb; padding: 60px 20px;">
+        <div
+            style="max-width: 900px; margin: auto; padding: 30px; background: #ffffff; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <h2 style="color: var(--deep-purple); text-align: center; margin-bottom: 30px;">About Me</h2>
+            <p
+                style="text-align: justify; line-height: 1.8; font-size: 18px; color: #333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                Hello! I'm <strong>Anagha Ankolekar</strong>, a passionate Data Science student at <strong>Alva’s
+                    Institute of Engineering and Technology</strong>, located in Moodbidri, India. I love transforming
+                raw data into meaningful insights and combining creativity with technical skills to solve real-world
+                problems.
+            </p>
+            <p
+                style="text-align: justify; line-height: 1.8; font-size: 18px; color: #333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-top: 1rem;">
+                With a strong foundation in programming languages such as Python, C and R, and experience in database
+                management and web development, I enjoy working on projects that challenge me to learn and innovate. I
+                am committed to ethical data use and strive to create impactful solutions that make a difference.
+            </p>
+            <p
+                style="text-align: justify; line-height: 1.8; font-size: 18px; color: #333; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin-top: 1rem;">
+                Beyond academics, I actively contribute to open-source projects, refine my graphic design skills, and
+                engage in digital marketing initiatives. I am excited to collaborate on projects that promote social
+                good and continuous growth.
+            </p>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <h3>Programming Languages</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>R</li>
+                    <li>C</li>
+
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Web Development</h3>
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>Bootstrap</li>
+                    <li>JavaScript</li>
+                    <li>PHP</li>
+                    <li>XAMPP</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>AIML</h3>
+                <ul>
+                    <li>Artificial Intelligence (AI)</li>
+                    <li>Machine Learning (ML)</li>
+                    <li>Natural Language Processing (NLP)</li>
+
+                    <li>Generative AI</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Data Science</h3>
+                <ul>
+                    <li>Data Analysis</li>
+                    <li>Data Science</li>
+                    <li>Data Visualization</li>
+                    <li>Power BI</li>
+                    <li>Tableau</li>
+
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Design</h3>
+                <ul>
+                    <li>Graphic Design</li>
+                    <li>Digital Marketing</li>
+                    <li>Canva</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>Databases</h3>
+                <ul>
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="grid">
+
+            <div class="project-card" tabindex="0">
+                <h5>Proactive Healthcare using SDoH</h5>
+                <p class="description">
+                    Predictive healthcare model based on social determinants of health.
+                </p>
+                <div class="tech">
+                    <span>🐍 Python</span>
+                    <span>🌸 Flask</span>
+                    <span>Data Science</span>
+                    <span>AIML</span>
+                    <span>Data Visualization</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>Personal Expense Tracker</h5>
+                <p class="description">
+                    Track personal expenses and visualize financial data effectively.
+                </p>
+                <div class="tech">
+                    <span>📊 Excel</span>
+                    <span>📈 Power BI</span>
+                    <span>Tableau</span>
+                    <span>Data Analysis</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>Vedic Encyclopedia</h5>
+                <p class="description">
+                    A searchable web database of Vedic content and scriptures.
+                </p>
+                <div class="tech">
+                    <span>🖥️ HTML</span>
+                    <span>CSS</span>
+                    <span>Bootstrap 5</span>
+                    <span>💾 MySQL</span>
+                    <span>DBMS</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>NGO Website</h5>
+                <p class="description">
+                    A responsive website to help NGOs showcase their initiatives.
+                </p>
+                <div class="tech">
+                    <span>🖥️ HTML</span>
+                    <span>CSS</span>
+                    <span>Bootstrap</span>
+                    <span>PHP</span>
+                    <span>💾 MySQL</span>
+                    <span>DBMS</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>Travel Management System</h5>
+                <p class="description">
+                    System to manage travel bookings and itineraries.
+                </p>
+                <div class="tech">
+                    <span>🖥️ HTML</span>
+                    <span>CSS</span>
+                    <span>Bootstrap 5</span>
+                    <span>💾 SQL</span>
+                    <span>DBMS</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>Real-Time Bus Tracking System</h5>
+                <p class="description">
+                    Track live bus locations and routes using API integrations.
+                </p>
+                <div class="tech">
+                    <span>🖥️ HTML</span>
+                    <span>CSS</span>
+                    <span>Bootstrap 5</span>
+                    <span>💾 DBMS</span>
+                    <span>API Integration</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>Sentiment Analysis</h5>
+                <p class="description">
+                    NLP-based analysis of user sentiment from social data.
+                </p>
+                <div class="tech">
+                    <span>🐍 Python</span>
+                    <span>NLP</span>
+                    <span>ML</span>
+                    <span>HuggingFace</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>Text Summarization</h5>
+                <p class="description">
+                    Automated generation of concise summaries from long documents using advanced NLP techniques.
+                </p>
+                <div class="tech">
+                    <span>🐍 Python</span>
+                    <span>NLP</span>
+                    <span>Transformers</span>
+                    <span>HuggingFace</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+            <div class="project-card" tabindex="0">
+                <h5>ThinkBit - Aptitude Practice</h5>
+                <p class="description">
+                    A user-friendly platform for students to practice aptitude questions with instant feedback.
+                </p>
+                <div class="tech">
+                    <span>🖥️ HTML</span>
+                    <span>🎨 CSS</span>
+                    <span>⚙️ JavaScript</span>
+                </div>
+                <a href="#">Know More</a>
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="resume" class="resume">
+        <h2>Resume</h2>
+        <p>You can download my resume below:</p>
+        <a href="Anagha_Ankolekar_Resume_.pdf" class="resume-btn" download>📄 Download Resume</a>
+    </section>
+
+
+    <section id="contact" class="contact">
+        <h2>Connect With Me</h2>
+        <div class="connect-details">
+            <p>📧 Email: <a href="mailto:anaghaankolekar@gmail.com">anaghaankolekar@gmail.com</a></p>
+            <p>📞 Phone: <a href="tel:+911234567890">+91 9960825446</a></p>
+            <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/anagha21/" target="_blank">anagha-ankolekar</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Anagha Ankolekar</p>
+    </footer>
+
+    <script>
+        const roles = ["Data Scientist.", "Developer.", "Designer.", "Data Enthusiast."];
+        const typedText = document.querySelector(".typed-text");
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function typeEffect() {
+            const current = roles[roleIndex];
+            const displayed = current.substring(0, charIndex);
+            typedText.textContent = displayed;
+
+            if (!isDeleting && charIndex < current.length) {
+                charIndex++;
+                setTimeout(typeEffect, 120);
+            } else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(typeEffect, 60);
+            } else {
+                isDeleting = !isDeleting;
+                if (!isDeleting) roleIndex = (roleIndex + 1) % roles.length;
+                setTimeout(typeEffect, 1000);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
