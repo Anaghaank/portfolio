@@ -29,11 +29,35 @@
       background-color: var(--primary);
       color: white;
       padding: 1.5rem;
-      text-align: center;
       font-size: 1.8rem;
       font-weight: bold;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+      position: relative;
+      /* Needed for absolute positioning */
+      text-align: center;
+      /* Center text inside header */
     }
+
+    .header-center {
+      /* Centered block */
+      font-weight: bold;
+      font-size: 1.8rem;
+    }
+
+    .header-link {
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #d8c2ff;
+      /* light purple */
+      text-decoration: none;
+      font-weight: normal;
+      font-size: 1.4rem;
+    }
+
+
 
     .container {
       display: flex;
@@ -150,8 +174,11 @@
 <body>
 
   <header>
-    My Projects Showcase
+    <div class="header-center">My Projects Showcase</div>
+    <a href="index.html" class="header-link">Profile Page</a>
   </header>
+
+
 
   <div class="container">
     <div class="project-list">
@@ -211,7 +238,7 @@
 
   `, images: ["images/vedic.png", "images/vedic1.png", "images/vedic2.png", "images/vedic3.png", "images/vedic4.png"],
 
-        
+
         github: "https://github.com/Anaghaank/Vedic-Encyclopedia"
       },
       ngo: {
@@ -235,9 +262,9 @@
     </li>
   </ul>
 `
-,
-        images: ["images/ngo.png", "images/ngo1.png","images/ngo2.png","images/ngo3.png","images/ngo4.png","images/ngo5.png","images/ngo6.png","images/ngo7.png", "images/ngo8.png", "images/ngo9.png"],
-        tech: ["HTML", "CSS", "Bootstrap", "PHP", "MySQL"],
+        ,
+        images: ["images/ngo.png", "images/ngo1.png", "images/ngo2.png", "images/ngo3.png", "images/ngo4.png", "images/ngo5.png", "images/ngo6.png", "images/ngo7.png", "images/ngo8.png", "images/ngo9.png"],
+        tech: ["HTML", "CSS", "Bootstrap", "PHP", "MySQL", "DBMS", "XAMPP"],
         github: "https://github.com/Anaghaank/NGO-Connect-Volunteer"
       },
       travel: {
@@ -279,16 +306,16 @@
     };
 
     function showProject(key) {
-  const p = projects[key];
-  let imageHTML = "";
+      const p = projects[key];
+      let imageHTML = "";
 
-  if (p.images) {
-    imageHTML = p.images.map(img => `<img src="${img}" alt="${p.title}">`).join('');
-  } else if (p.image) {
-    imageHTML = `<img src="${p.image}" alt="${p.title}">`;
-  }
+      if (p.images) {
+        imageHTML = p.images.map(img => `<img src="${img}" alt="${p.title}">`).join('');
+      } else if (p.image) {
+        imageHTML = `<img src="${p.image}" alt="${p.title}">`;
+      }
 
-  document.getElementById("projectDetails").innerHTML = `
+      document.getElementById("projectDetails").innerHTML = `
     <div style="margin-bottom: 20px;"><h2>${p.title}</h2></div>
     <div style="margin-bottom: 20px;">${p.description}</div>
     <div class="tech-stack" style="margin-bottom: 20px;">
@@ -301,7 +328,7 @@
       <a class="github-link" href="${p.github}" target="_blank">🔗 View on GitHub</a>
     </div>
   `;
-}
+    }
 
 
 

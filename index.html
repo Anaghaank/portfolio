@@ -14,22 +14,20 @@
             --deep-purple: #6a0dad;
             --white: #fff;
             --text-dark: #2c2c2c;
-            --text-light: #666;
+            --text-light: #f5f5f5;
+            /* unified value from second :root */
             --skills-bg: #d8b9f2;
-            /* added for skills background */
             --footer-link: #fdd835;
-        }
 
-        :root {
             --purple-dark: #4B0082;
             --purple-light: #7D3C98;
             --purple-accent: #9B59B6;
-            --text-light: #f5f5f5;
             --shadow-dark: rgba(75, 0, 130, 0.3);
             --border-radius: 12px;
             --transition-speed: 0.3s;
             --font-primary: 'Poppins', sans-serif;
         }
+
 
         #projects {
             margin: 4rem auto;
@@ -48,85 +46,91 @@
             text-transform: uppercase;
         }
 
-        #projects .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.8rem;
+        .category a {
+            color: #372c4c;
+            /* light purple */
+            text-decoration: none;
+            /* optional: remove underline */
         }
 
-        .project-card {
+        .category a:hover {
+            color: #6a5799;
+            /* a slightly darker purple on hover */
+            text-decoration: underline;
+            /* optional hover effect */
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category {
             background: linear-gradient(145deg, #b795d1, #dbbaf2);
-            color: var(--text-light);
             border-radius: var(--border-radius);
             box-shadow: 0 8px 25px var(--shadow-dark);
-            display: flex;
-            flex-direction: column;
-            padding: 1.6rem 2rem;
-            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
-            cursor: pointer;
-            height: 100%;
+            padding: 1.5rem 1.8rem;
+            color: var(--text-light);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
 
-        .project-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 12px 40px rgba(108, 35, 161, 0.6);
+        .category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(108, 35, 161, 0.5);
         }
 
-        .project-card h5 {
+        .category h5 {
+            font-size: 1.3rem;
             font-weight: 700;
-            font-size: 1.4rem;
             margin-bottom: 1rem;
-            letter-spacing: 0.05em;
             color: #130221;
+            letter-spacing: 0.05em;
         }
 
-        .project-card p.description {
-            flex-grow: 1;
+        .category ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category ul li {
             font-size: 1rem;
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
-            opacity: 0.9;
+            padding: 0.4rem 0;
+            position: relative;
+            padding-left: 1.2rem;
             color: #160225;
         }
 
-        .tech {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem 0.7rem;
-            align-items: center;
-            color: #ffffff;
-        }
-
-        .tech span {
-            background: #63308d;
-            padding: 0.3rem 0.75rem;
-            border-radius: 20px;
+        .category ul li::before {
+            content: "➤";
+            position: absolute;
+            left: 0;
+            color: #63308d;
             font-size: 0.9rem;
-            box-shadow: 0 2px 6px rgba(42, 5, 57, 0.3);
-            display: inline-flex;
-            align-items: center;
         }
 
-        .project-card a {
-            align-self: flex-start;
-            padding: 0.5rem 1.2rem;
-            border: 2px solid var(--text-light);
-            border-radius: 30px;
-            color: var(--text-light);
-            font-weight: 700;
-            font-size: 0.95rem;
+        .button {
+            background-color: #7b2cbf;
+            /* darker purple tone */
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
             text-decoration: none;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            box-shadow: var(--box-shadow);
         }
 
-        .project-card a:hover {
-            background-color: var(--text-light);
-            color: var(--purple-dark);
-            border-color: var(--text-light);
+        .button:hover {
+            background-color: #5a189a;
+            /* even darker on hover */
         }
+
+
 
         /* Emojis sizing for consistent look */
         .tech span::before {
@@ -341,79 +345,52 @@
         /* Container & section styling */
         /* Section fills full width, no big horizontal margin or padding */
         .skills-section {
-            padding: 20px;
-
-
-
-            background: #f9f9fb;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            /* wider container */
+            margin: 2rem auto;
+            padding: 0 1rem;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .skills-section h2 {
             text-align: center;
-            color: #5a2a83;
-            margin-bottom: 40px;
-            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            /* bigger section title */
+            font-weight: 700;
         }
 
         .skills-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .skills-column {
-            flex: 1;
-            background: #fff;
-            border-radius: 12px;
-            padding: 25px 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            /* exactly 6 columns */
+            gap: 1.5rem 2rem;
+            /* vertical and horizontal gaps */
         }
 
         .skills-column h3 {
-            color: #3c1361;
-            margin-bottom: 20px;
+            margin-bottom: 0.6rem;
             font-size: 1.3rem;
-            border-bottom: 3px solid #5a2a83;
-            padding-bottom: 8px;
+            /* bigger subsection title */
             font-weight: 700;
+            color: #6a0dad;
         }
 
         .skills-column ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            flex-grow: 1;
+            font-size: 1.1rem;
+            /* bigger skill items */
+            line-height: 1.4;
+            color: #333;
         }
 
         .skills-column ul li {
-            background: #e8def8;
-            color: #3c1361;
-            margin-bottom: 12px;
-            padding: 10px 15px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: default;
-            transition: background-color 0.3s ease;
+            padding-left: 0.4rem;
+            margin-bottom: 0.4rem;
+            border-left: 3px solid #9d4edd;
         }
-
-        .skills-column ul li:hover {
-            background-color: #d6c5f2;
-        }
-
-        /* Responsive: stack columns vertically on smaller screens */
-        @media (max-width: 900px) {
-            .skills-container {
-                flex-direction: column;
-                gap: 25px;
-            }
-        }
-
-
 
         .resume {
             text-align: center;
@@ -580,12 +557,30 @@
         <h2>Skills</h2>
         <div class="skills-container">
             <div class="skills-column">
+                <h3>Data Science</h3>
+                <ul>
+                    <li>Data Analysis</li>
+                    <li>Data Science</li>
+                    <li>Data Visualization</li>
+                    <li>Power BI</li>
+                    <li>Tableau</li>
+                </ul>
+            </div>
+            <div class="skills-column">
+                <h3>AIML</h3>
+                <ul>
+                    <li>Artificial Intelligence (AI)</li>
+                    <li>Machine Learning (ML)</li>
+                    <li>Natural Language Processing (NLP)</li>
+                    <li>Generative AI</li>
+                </ul>
+            </div>
+            <div class="skills-column">
                 <h3>Programming Languages</h3>
                 <ul>
                     <li>Python</li>
                     <li>R</li>
                     <li>C</li>
-
                 </ul>
             </div>
             <div class="skills-column">
@@ -599,25 +594,12 @@
                     <li>XAMPP</li>
                 </ul>
             </div>
-            <div class="skills-column">
-                <h3>AIML</h3>
-                <ul>
-                    <li>Artificial Intelligence (AI)</li>
-                    <li>Machine Learning (ML)</li>
-                    <li>Natural Language Processing (NLP)</li>
 
-                    <li>Generative AI</li>
-                </ul>
-            </div>
             <div class="skills-column">
-                <h3>Data Science</h3>
+                <h3>Databases</h3>
                 <ul>
-                    <li>Data Analysis</li>
-                    <li>Data Science</li>
-                    <li>Data Visualization</li>
-                    <li>Power BI</li>
-                    <li>Tableau</li>
-
+                    <li>MySQL</li>
+                    <li>MongoDB</li>
                 </ul>
             </div>
             <div class="skills-column">
@@ -628,15 +610,10 @@
                     <li>Canva</li>
                 </ul>
             </div>
-            <div class="skills-column">
-                <h3>Databases</h3>
-                <ul>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                </ul>
-            </div>
+
         </div>
     </section>
+
 
 
 
@@ -644,143 +621,50 @@
 
 
     <section id="projects">
-        <h2>Projects</h2>
-        <div class="grid">
+        <h2>My Projects</h2>
+        <div class="categories-grid">
 
-            <div class="project-card" tabindex="0">
-                <h5>Proactive Healthcare using SDoH</h5>
-                <p class="description">
-                    Predictive healthcare model based on social determinants of health.
-                </p>
-                <div class="tech">
-                    <span>🐍 Python</span>
-                    <span>🌸 Flask</span>
-                    <span>Data Science</span>
-                    <span>AIML</span>
-                    <span>Data Visualization</span>
-                </div>
-                <a href="#">Know More</a>
+            <div class="category">
+                <h5>💡 AI & Data Science</h5>
+                <ul>
+                    <li><a href="#">Proactive Healthcare using SDoH</a></li>
+                    <li><a href="#">Sentiment Analysis</a></li>
+                    <li><a href="#">Text Summarization</a></li>
+                </ul>
             </div>
 
-            <div class="project-card" tabindex="0">
-                <h5>Personal Expense Tracker</h5>
-                <p class="description">
-                    Track personal expenses and visualize financial data effectively.
-                </p>
-                <div class="tech">
-                    <span>📊 Excel</span>
-                    <span>📈 Power BI</span>
-                    <span>Tableau</span>
-                    <span>Data Analysis</span>
-                </div>
-                <a href="#">Know More</a>
+            <div class="category">
+                <h5>📊 Data Visualization</h5>
+                <ul>
+                    <li><a href="#">Personal Expense Tracker</a></li>
+                    <li><a href="#">Travel Management System</a></li>
+                </ul>
             </div>
 
-            <div class="project-card" tabindex="0">
-                <h5>Vedic Encyclopedia</h5>
-                <p class="description">
-                    A searchable web database of Vedic content and scriptures.
-                </p>
-                <div class="tech">
-                    <span>🖥️ HTML</span>
-                    <span>CSS</span>
-                    <span>Bootstrap 5</span>
-                    <span>💾 MySQL</span>
-                    <span>DBMS</span>
-                </div>
-                <a href="#">Know More</a>
+            <div class="category">
+                <h5>🌐 Web Development</h5>
+                <ul>
+                    <li><a href="#">NGO Website</a></li>
+                    <li><a href="#">Vedic Encyclopedia</a></li>
+                    <li><a href="#">ThinkBit - Aptitude Practice</a></li>
+                </ul>
             </div>
 
-            <div class="project-card" tabindex="0">
-                <h5>NGO Website</h5>
-                <p class="description">
-                    A responsive website to help NGOs showcase their initiatives.
-                </p>
-                <div class="tech">
-                    <span>🖥️ HTML</span>
-                    <span>CSS</span>
-                    <span>Bootstrap</span>
-                    <span>PHP</span>
-                    <span>💾 MySQL</span>
-                    <span>DBMS</span>
-                </div>
-                <a href="#">Know More</a>
-            </div>
-
-            <div class="project-card" tabindex="0">
-                <h5>Travel Management System</h5>
-                <p class="description">
-                    System to manage travel bookings and itineraries.
-                </p>
-                <div class="tech">
-                    <span>🖥️ HTML</span>
-                    <span>CSS</span>
-                    <span>Bootstrap 5</span>
-                    <span>💾 SQL</span>
-                    <span>DBMS</span>
-                </div>
-                <a href="#">Know More</a>
-            </div>
-
-            <div class="project-card" tabindex="0">
-                <h5>Real-Time Bus Tracking System</h5>
-                <p class="description">
-                    Track live bus locations and routes using API integrations.
-                </p>
-                <div class="tech">
-                    <span>🖥️ HTML</span>
-                    <span>CSS</span>
-                    <span>Bootstrap 5</span>
-                    <span>💾 DBMS</span>
-                    <span>API Integration</span>
-                </div>
-                <a href="#">Know More</a>
-            </div>
-
-            <div class="project-card" tabindex="0">
-                <h5>Sentiment Analysis</h5>
-                <p class="description">
-                    NLP-based analysis of user sentiment from social data.
-                </p>
-                <div class="tech">
-                    <span>🐍 Python</span>
-                    <span>NLP</span>
-                    <span>ML</span>
-                    <span>HuggingFace</span>
-                </div>
-                <a href="#">Know More</a>
-            </div>
-
-            <div class="project-card" tabindex="0">
-                <h5>Text Summarization</h5>
-                <p class="description">
-                    Automated generation of concise summaries from long documents using advanced NLP techniques.
-                </p>
-                <div class="tech">
-                    <span>🐍 Python</span>
-                    <span>NLP</span>
-                    <span>Transformers</span>
-                    <span>HuggingFace</span>
-                </div>
-                <a href="#">Know More</a>
-            </div>
-
-            <div class="project-card" tabindex="0">
-                <h5>ThinkBit - Aptitude Practice</h5>
-                <p class="description">
-                    A user-friendly platform for students to practice aptitude questions with instant feedback.
-                </p>
-                <div class="tech">
-                    <span>🖥️ HTML</span>
-                    <span>🎨 CSS</span>
-                    <span>⚙️ JavaScript</span>
-                </div>
-                <a href="#">Know More</a>
+            <div class="category">
+                <h5>🚌 System Apps</h5>
+                <ul>
+                    <li><a href="#">Real-Time Bus Tracking</a></li>
+                </ul>
             </div>
 
 
         </div>
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <a href="/projects/projects.html" class="button">Explore All Projects</a>
+        </div>
     </section>
+
+
 
     <section id="resume" class="resume">
         <h2>Resume</h2>
