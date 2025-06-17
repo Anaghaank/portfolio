@@ -306,34 +306,26 @@
     };
 
     function showProject(key) {
-      const p = projects[key];
-      let imageHTML = "";
+    const project = projects[key];
+    const container = document.getElementById("projectDetails");
 
-      if (p.images) {
-        imageHTML = p.images.map(img => `<img src="${img}" alt="${p.title}">`).join('');
-      } else if (p.image) {
-        imageHTML = `<img src="${p.image}" alt="${p.title}">`;
-      }
+    const images = project.images
+      ? project.images.map(src => `<img src="${src}" alt="Screenshot">`).join("")
+      : `<img src="${project.image}" alt="Screenshot">`;
 
-      document.getElementById("projectDetails").innerHTML = `
-    <div style="margin-bottom: 20px;"><h2>${p.title}</h2></div>
-    <div style="margin-bottom: 20px;">${p.description}</div>
-    <div class="tech-stack" style="margin-bottom: 20px;">
-      ${p.tech.map(t => `<span>${t}</span>`).join('')}
-    </div>
-    <div style="margin-bottom: 20px;">
-      ${imageHTML}
-    </div>
-    <div style="margin-bottom: 20px;">
-      <a class="github-link" href="${p.github}" target="_blank">🔗 View on GitHub</a>
-    </div>
-  `;
-    }
+    const techHTML = project.tech
+      .map(tech => `<span>${tech}</span>`)
+      .join("");
 
-
-
-
-  </script>
+    container.innerHTML = `
+      <h2>${project.title}</h2>
+      <p>${project.description}</p>
+      ${images}
+      <div class="tech-stack">${techHTML}</div>
+      <a class="github-link" href="${project.github}" target="_blank">🔗 View on GitHub</a>
+    `;
+  }
+</script>
 
 </body>
 
