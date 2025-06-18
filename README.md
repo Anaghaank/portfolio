@@ -1,4 +1,4 @@
-# 💼 Anagha Ankolekar — Developer Portfolio
+# 💼 Anagha Ankolekar
 
 Welcome to my personal portfolio website! I'm **Anagha Ankolekar**, currently pursuing a degree in **Data Science** at *Alva's Institute of Engineering and Technology* (Class of 2026).
 
