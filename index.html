@@ -342,54 +342,136 @@
             margin-bottom: 20px;
         }
 
+        /*internship */
+        .internship-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 0 15px rgba(76, 70, 70, 0.2);
+        }
+
+        .internship-card {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            border-left: 10px solid #9173c5;
+            background-color: #f6f0ff;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .internship-card:hover {
+            transform: scale(1.01);
+        }
+
+        .internship-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: contain;
+            background-color: #a187a8;
+            padding: 6px;
+        }
+
+        .internship-details {
+            flex-grow: 1;
+        }
+
+        .internship-details h3 {
+            font-size: 1.2rem;
+            color: #1e192e;
+            margin: 0;
+        }
+
+        .internship-details .company {
+            font-weight: 500;
+            color: #7c58bc;
+            margin-bottom: 8px;
+        }
+
+        .internship-details .date-location {
+            font-size: 0.95rem;
+            color: #5e5c6c;
+            margin-bottom: 6px;
+        }
+
+        .internship-details ul {
+            font-size: 0.95rem;
+            margin: 5px 0 0 15px;
+            color: #3d375f;
+        }
+
+        .internship-container h2 {
+            text-align: center;
+            color: var(--purple-dark);
+            margin-bottom: 3rem;
+            font-weight: 800;
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+
         /* Container & section styling */
         /* Section fills full width, no big horizontal margin or padding */
         .skills-section {
             max-width: 1200px;
-            /* wider container */
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 2rem;
+            /* increased horizontal padding */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .skills-section h2 {
             text-align: center;
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
-            /* bigger section title */
-            font-weight: 700;
+            color: var(--purple-dark);
+            margin-bottom: 2.5rem;
+            font-weight: 800;
+            font-size: 2.5rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
         }
+
 
         .skills-container {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            /* exactly 6 columns */
             gap: 1.5rem 2rem;
-            /* vertical and horizontal gaps */
         }
 
         .skills-column h3 {
             margin-bottom: 0.6rem;
-            font-size: 1.3rem;
-            /* bigger subsection title */
+            font-size: 1.2rem;
             font-weight: 700;
             color: #6a0dad;
+            text-align: left;
         }
 
         .skills-column ul {
             list-style: none;
             padding: 0;
             margin: 0;
-            font-size: 1.1rem;
-            /* bigger skill items */
-            line-height: 1.4;
+            font-size: 1rem;
+            line-height: 1.5;
             color: #333;
         }
 
         .skills-column ul li {
-            padding-left: 0.4rem;
+            padding-left: 0.6rem;
             margin-bottom: 0.4rem;
             border-left: 3px solid #9d4edd;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .skills-column ul li:hover {
+            color: #6a0dad;
+            font-weight: 500;
         }
 
         .resume {
@@ -548,6 +630,55 @@
     </section>
 
 
+    <div class="internship-container">
+        <h2>Internship</h2>
+        <div class="internship-card">
+            <img src="logo/brazen-logo.png" alt="Brazen Group" class="internship-logo">
+            <div class="internship-details">
+                <h3>Software Developer Intern</h3>
+                <div class="company">Brazen Group · Internship</div>
+                <div class="date-location">Jun 2025 – Present · Remote</div>
+                <ul>
+                    <li>Contributed to real-world e-commerce modules using <strong>Magento</strong></li>
+                    <li>Worked with <strong>Webkul</strong> tools to enhance storefront customization</li>
+                    <li>Developed dynamic UI components</li>
+                    <li>Collaborated with cross-functional teams in an <strong>Agile</strong> environment</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="internship-card">
+            <img src="logo/edunet-logo.png" alt="Edunet Foundation" class="internship-logo">
+            <div class="internship-details">
+                <h3>Intern</h3>
+                <div class="company">Edunet Foundation · Internship</div>
+                <div class="date-location">May 2025 – Remote</div>
+                <ul>
+                    <li>Exploring the end-to-end lifecycle of AI/ML projects</li>
+                    <li>Developed a sustainability-focused ML prototype</li>
+                    <li>Participated in weekly industry mentorship sessions</li>
+                    <li>Hands-on experience with data preprocessing and model training</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="internship-card">
+            <img src="logo/invayas-logo.png" alt="Invayas Technologies" class="internship-logo">
+            <div class="internship-details">
+                <h3>Graphic Designer</h3>
+                <div class="company">Invayas Technologies · Internship</div>
+                <div class="date-location">Dec 2023 – Apr 2024 · Mangaluru · Remote</div>
+                <ul>
+                    <li>Created brand assets including banners, and promotional content</li>
+                    <li>Used <strong>Figma</strong> and <strong>Canva</strong> for design projects</li>
+                    <li>Collaborated with marketing and product teams for campaign rollouts</li>
+                    <li>Maintained consistency with brand identity and visual storytelling</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
 
 
 
@@ -660,7 +791,7 @@
 
         </div>
         <div style="text-align: center; margin-top: 1.5rem;">
-            <a href="/projects/projects.html" class="button">Explore All Projects</a>
+            <a href="projects/projects.html" class="button">Explore All Projects</a>
         </div>
     </section>
 
